@@ -1,0 +1,110 @@
+.aside li{
+  width:25%;
+  @media screen and(max-width: 1068px){
+    width:50%;
+  }
+  @media screen and(max-width: 735px){
+    width:100%;
+  }
+}
+$item: large, a, b, c;
+@for $i from 1 through 4{
+  .aside li:nth-child(#{$i}) a{
+       background: url('/images/'+nth($item,$i)+'1'+'.jpg');
+          background-size: 360px 200px;
+       @media screen and(max-width: 1068px){
+     background: url('/images/'+nth($item,$i)+'2'+'.jpg');
+        background-size: 640px 200px;
+          background-position: center center;
+          background-repeat: no-repeat;
+   }
+    @media screen and(max-width: 735px){
+      background-size: 736px 200px;
+       background-image: url('/images/'+nth($item,$i)+'3'+'.jpg');
+         background-position: center center;
+         background-repeat:no-repeat;
+    }
+  }
+}
+.aside li:nth-child(4) a{
+    border-right: none;
+}
+.aside li:nth-child(2n) a{
+  @media screen and(max-width: 1068px){
+    border-right: none;
+  } 
+}
+.aside li a{
+  @media screen and(max-width: 735px){
+    border-right: none;
+  } 
+}
+
+
+%column{
+  position: relative;
+  float: left;
+}
+$large: 1600px;
+$medium:1068px;
+$small:735px;
+$rules:(
+  large: 1600px,
+  medium: 1068px,
+  small: 735px,
+  );
+
+$grip:12;
+@each $rule in map_keys($rules){
+  @for $i from 1 through $grip{
+    .#{$rule}#{$i}{
+      @extend %column;
+    } 
+  } 
+}
+@each $rule in map_keys($rules){
+  @media screen and(max-width: map_get($rules,$rule)){
+    @for $i from 1 through $grip{
+    .#{$rule}#{$i}{
+      width: percentage($i/$grip);
+    } 
+  } 
+  }
+}
+@for $i from 1 through $grip{
+  .puil#{$i}{
+    left: percentage($i/$grip);
+  }
+  .push#{$i}{
+    right: percentage($i/$grip);
+  }
+}
+@for $i from 5 through 10{
+  .with-#{$i}-col li{
+    @extend %column;
+  }
+}
+  @for $i from 5 through 10{
+    .with-#{$i}-col li{
+      width: percentage(1/$i);
+    }
+  } 
+@media screen and(max-width:$small){
+  @for $i from 5 through 10{
+    .with-#{$i}-col li{
+      width: 100%;
+      div section{
+        display: none;
+      }
+      div h4{
+        max-width: 735px;
+        position: relative;
+        &::after{
+          content: '+';
+          position: absolute;
+          right: 10px;
+        };
+      }
+    }
+  } 
+}

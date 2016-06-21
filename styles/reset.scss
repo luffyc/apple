@@ -1,0 +1,23 @@
+%reset{
+  margin:0;
+  padding:0;
+}
+body,h1,h2,h3,h4,h5,h6{
+  @extend %reset;
+  font-family: 'Arial';
+  font-weight: normal;
+}
+h2,h3{
+  display: block;
+}
+ul,li{
+  @extend %reset;
+  list-style: none;
+}
+a{
+  text-decoration: none;
+  color:#08c;
+}
+i{
+  font-style: normal;
+}

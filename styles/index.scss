@@ -1,0 +1,781 @@
+@import 'reset';
+@import 'vars';
+@import 'font';
+@import 'gridsystem';
+
+.aside{
+  position: relative;
+  height:200px;
+  border-top: 5px solid #fff;
+  margin-top: 80px;
+  &::after{
+    @extend %clear;
+  };
+  li{
+    position: relative;
+    min-height:200px;
+    width:25%;
+    float:left;
+    a{
+      display: block;
+      height:200px;
+      background-size: 360px 200px;
+          background-position: center center;
+          border-right:2px solid #fff;
+    }
+  }
+  span{
+    width:1px;
+        height:1px;
+        position: absolute;
+        left:0;
+        top:0;  
+        overflow: hidden;
+  }
+  @for $i from 1 through length($imgs){
+    li:nth-child(#{$i}) a{
+      background-image: url( nth($imgs,$i)+'_large.jpg');
+    };
+    li:nth-child(4) a{
+      border-right:none;
+    }
+  }
+  @media screen and(max-width: $resize-one){
+    li{
+      width:50%;
+      border-bottom: 2px solid #fff;
+      a{
+        background-size: 640px 200px;
+      }
+    }
+      @for $i from 1 through length($imgs){
+      li:nth-child(#{$i}) a{
+        background-image: url( nth($imgs,$i)+'_medium.jpg');
+      };
+    }
+    li:nth-child(3){
+      border-bottom: none;
+    }
+    li:nth-child(4){
+      border-bottom: none;
+    }
+    li:nth-child(2n) a{
+      border-right:none;
+    }
+  }
+  @media screen and(max-width: $resize-two){
+    li{
+      width:100%;
+      a{
+        background-size: 736px 200px;
+        border-right: none;
+      }
+    }
+      @for $i from 1 through length($imgs){
+      li:nth-child(#{$i}) a{
+        background-image: url( nth($imgs,$i)+'_small.jpg');
+      };
+    }
+    li:nth-child(3){
+      border-bottom: 2px solid #fff;
+    }
+  }
+}
+
+.redcross-banner-wrapper{
+    width:100%;
+    text-align: center;
+    .redcross-banner{
+      position: relative;
+      display: inline-block;
+      padding:20px 0;
+      border-bottom:1px solid #d6d6d6;
+      .image-redcross-logo{
+        position: absolute;
+        left:0;
+        top: 10px;
+        width:179px;
+        height:44px;
+        background:url('../images/redcross_banner_large.jpg') no-repeat;
+        background-size: 179px 44px;
+      }
+      .redcross-copy{
+        margin-left: 202px;
+        display: inline-block;
+        border-left: 1px solid #d6d6d6;
+        padding-left: 22px;
+      }
+      .redcross-link{
+        margin-left: 4px;
+      }
+    }
+    .visuallyhidden{
+      position: absolute;
+      left:0;
+      top:0;
+      width:1px;
+      height:1px;
+      overflow: hidden;
+    }
+    .exchange{
+      padding-left:40px;
+      margin:0 auto;
+      padding:20px 0;
+      text-align: center;
+    }
+}
+
+@media screen and(max-width: $resize-three){
+  .redcross-banner-wrapper .redcross-banner{
+    .redcross-copy{
+      display: block;
+      margin-top: 50px;
+      margin-left: 0;
+      padding-left: 0;
+      border-left: 0;
+    }
+    .redcross-link{
+      margin-left: 0;
+      margin-top: 10px;
+      display: block;
+    }
+  }
+}
+
+#footer{
+  line-height: 1.6667;
+  font-weight: 400;
+  background-color: #f2f2f2;
+  color: #666;
+  min-width: 1024px;
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+  .footer-inner{
+    margin:0 auto;
+    padding:0 22px;
+    max-width: 980px;
+    font-family: 'myfont text';
+  }
+  nav{
+    padding: 32px 0;
+    font-size: 12px;
+  }
+  .col{
+    position: relative;
+    z-index: 1;
+    min-height: 2px;
+    float:left;
+    @extend %reset;
+  }
+  .section{
+    width:100%;
+    position: relative;
+    z-index: 1;
+    min-height: 2px;
+    float:left;
+    @extend %reset;
+    .title{
+      font-family: 'myfont bold';
+      color:#333;
+      font-size: 12px;
+      letter-spacing: normal;
+    }
+  }
+  .section-top{
+    margin-top: 20px;
+  }
+  .ul{
+    padding:0;
+    margin-right:20px;
+  }
+}
+
+#footer li a{
+  color:#666;
+}
+
+@media screen and(max-width: $resize-one){
+  #footer{
+    min-width: 320px;
+  }
+}
+
+#footer nav .section a:hover{
+  text-decoration: underline;
+}
+
+
+@media screen and(max-width: $resize-three){
+  #footer nav .section-top{
+    margin-top: 0;
+  }
+  #footer nav .section{
+    position: relative;
+    border-bottom: 1px solid #e3e3e3;
+    overflow: hidden;
+    li a{
+      display: block;
+      color:#333;
+      padding:5px 14px;
+    }
+  }
+  #footer nav .section .ul{
+    display:none;
+  }
+  #footer nav .section .title{
+    line-height: 2.78;
+    font-size: 14px;
+    position: relative;
+    cursor: pointer;
+    &::after{
+      content:'+';
+      position: absolute;
+      top:0;
+      bottom:0;
+      right:20px;
+    }
+  }
+}
+
+@for $i from 1 through 7{
+  #input#{$i}{
+    display: none;
+  }
+}
+
+
+@media screen and(max-width: $resize-three){
+  @for $i from 1 through 7{
+      #input#{$i}{
+        &:checked + .section .ul{
+          display: block;
+        }
+        &:checked + .section h3::after{
+          transform:rotate(45deg);
+          transition: .3s ease;
+        };
+      }
+  }
+}
+
+
+#footer{
+  .copyright{
+    color:#999;
+    font-size: 12px;
+    padding:20px 0 24px;
+    .copyright-top{
+      border-bottom: 1px solid #e3e3e3;
+      margin-bottom: 6px;
+      padding-bottom: 5px;
+    }
+  }
+  .copyright-right{
+    float:right;
+  }
+}
+.copyright-right a{
+  display: inline;
+  color:#666;
+}
+.copyright-right .copyright-logo{
+  width:16px;
+  height:16px;
+  display: inline-block;
+  float:left;
+  background:url('../images/16.png') no-repeat;
+  background-size: 16px 16px;
+  background-position: left center;
+  padding-right: 5px;
+  margin-top: 1px;
+}
+.copyright-left::after{
+  @extend %clear;
+}
+
+.copyright-left-font{
+  @extend %last;
+}
+.copyright-left-link{
+  @extend %last;
+  a{
+    border-right:1px solid #d6d6d6;
+    margin-right: 10px;
+    padding-right: 12px;
+    color:#666;
+  }
+}
+
+@media screen and(max-width: $resize-three){
+  #footer{
+     .copyright-top{
+        border-bottom: none;
+      }
+      .copyright-right{
+        float:none;
+        position: relative;
+        z-index: 1;
+      }
+      .copyright-left{
+        float:none;
+        margin-right: 0;
+        padding-top: 13px;
+      }
+  }
+}
+
+#global-nav{
+  position: absolute;
+  top:0;
+  left:0;
+  right:0;
+  z-index: 99;
+  display: block;
+  margin: 0;
+  width:100%;
+  height:44px;
+  font-size: 18px;
+  background: rgba(0,0,0,0.8);
+}
+#global-nav .content{
+  margin: 0 auto;
+  max-width: 980px;
+  padding:0 22px;
+  position: relative;
+  z-index: 2;
+}
+#global-nav .gn-list{
+  margin: 0 -10px;
+  width:auto;
+  height:44px;
+  text-align: justify;
+  &::after{
+    content:'';
+    width:100%;
+    display: inline-block;
+    line-height: 0;
+  };
+  .item{
+    display: inline-block;
+    position: relative;
+    height:44px;
+    z-index: 1;
+  }
+}
+#global-nav .item-link{
+   position: relative;
+   z-index: 1;
+   display: inline-block;
+   height:44px;
+   padding:0 10px;
+   font-size: 16px;
+   background: no-repeat;
+   outline-offset:-7px;
+   line-height: 2.75;
+}
+
+@each $bg in map_keys($headerbg){
+  $width: map_get($headerbg,$bg);
+  #global-nav .item-#{$bg}{
+    width:$width;
+    background-size: $width 44px;
+    background: url('../images/#{$bg}.svg') no-repeat;
+    background-position: center center;
+  }
+} 
+
+#global-nav .gn-header{
+  position: absolute;
+  z-index: 3;
+  top:0;
+  left:0;
+  width:100%;
+  height:48px;
+  overflow: hidden;
+  display: none;
+}
+#global-nav .gn-header .apple{
+  position: absolute;
+  left:50%;
+  top:0;
+  width:48px;
+  height:48px;
+  margin-left: -24px;
+  text-align: center;
+  z-index: 1;
+}
+#global-nav .gn-header .item-apple{
+  width:20px;
+  height:48px;
+  @extend %background;
+}
+#global-nav .gn-header {
+  .bagg{
+    position: absolute;
+    right:0;
+    top:0;
+    width:auto;
+    height:48px;
+  }
+  .item-bagg{
+    @extend %background;
+    width:18px;
+    height:48px;
+  }
+}
+@media screen and(max-width: $resize-three){
+  #global-nav{
+    min-width:360px; 
+    height:48px;
+    .gn-header{
+      display: block;
+      .item-apple{
+        background-size: 21px 48px;
+        background-image: url('../images/apple_big.svg');
+        background-position:center center; 
+      }
+      .item-bagg{
+        background-size: 19px 480px;
+        background-image: url('../images/bag_big.svg');
+        background-position:center center;
+      }
+    }
+  }
+}
+
+//下拉
+@media screen and(max-width: $resize-three){
+  #global-nav{
+    .gn-list{
+      position: absolute;
+      z-index: 99;
+      top:48px;
+      right:0;
+      margin:0;
+      padding:0 48px;
+      width:100%;
+      height:0;
+      box-sizing:border-box;
+      overflow-y:auto;
+      background: rgba(0,0,0,0.9);
+      transition:height .3s ease;
+      .item{
+        width:100%;
+        height:48px;
+        display: block;
+        border-bottom: 1px solid #333;
+        visibility: hidden;
+        transform:scale(1.2,1.2) translateY(-18px);
+      }
+      .apple,.bag{
+        display: none;
+      }
+      .mac{
+        margin-top: 30px;
+      }
+      .search{
+        border-bottom: 1px solid #fff;
+      }
+    }
+  }
+}
+
+#global-nav .xiala-label{
+  position: absolute;
+  top:0;
+  z-index: 3;
+  display: block;
+  width:48px;
+  height:48px;
+  cursor: pointer;
+}
+#global-nav .xiala-wheng{
+  position: absolute;
+  top:0;
+  left:0;
+  width:48px;
+  height:48px;
+  z-index: 3;
+  transition:transform 0.25s cubic-bezier(0.4,0.01,0.165,0.99);
+}
+#global-nav{
+  .wheng-top,.wheng-bottom{
+    transform:rotate(0);
+    z-index: 4;
+  }
+}
+#global-nav .xiala-lheng{
+  display: block;
+  width:17px;
+  height:1px;
+  background: #fff;
+  position: absolute;
+  left:16px;
+  z-index: 1;
+  transition: transform 0.2s;
+}
+#global-nav{
+  .lheng-top{
+    top:23px;
+    transform:translateY(-3px);
+  }
+  .lheng-bottom{
+    bottom:23px;
+    transform:translateY(3px);
+  }
+}
+
+#global-nav .item-link:hover{
+   opacity: 0.8;
+}
+#global-nav .xiala-label:hover{
+  .xiala-lheng{
+    opacity: 0.8;
+  }
+}
+
+#xiala-input{
+  display: none;
+}
+#xiala-input:checked ~ #global-nav{
+  .bagg{
+    transition:transform .3s ease;
+    transform:translateX(40px);
+  }
+  .wheng-top{
+    transform:rotate(135deg);
+  }
+  .wheng-bottom{
+    transform:rotate(45deg);
+  }
+  .lheng-top,.lheng-bottom {
+    transform:translateY(0);
+  }
+  .gn-list{
+    height:590px;
+    padding-bottom: 60px;
+  }
+  .gn-list .item{
+    visibility: visible;
+    transform:scale(1,1) translateY(0);
+  }
+  @for $i from 1 through 9{
+     .item:nth-child(#{$i}){
+      transition:transform .5s $i * 0.03s ease;
+    };
+  }
+}
+
+
+#lunbo{
+  position: relative;
+  top:50px;
+  left:0;
+  right:0;
+  width:100%;
+  height:580px;
+  z-index: 9;
+  .lunbo-content{
+    position: absolute;
+    margin:auto;
+    left:0;
+    right:0;
+    top:0;
+    width:671px;
+    height:100%;
+  }
+  .lunbo-position{
+    position: relative;
+    width:100%;
+    height:100%;
+  }
+  .lunbo-num{
+    position: absolute;
+    left:0;
+    top:0;
+    width:100%;
+    height:100%;
+  }
+  .lunbo-font{
+    width:100%;
+    height:213px;
+    overflow: hidden;
+  }
+  .lunbo-imgs-box,.lunbo-imgs-box2{
+    position: relative;
+    width:100%;
+    height:341px;
+  }
+  .lunbo-imgs{
+    position: absolute;
+    left:0;
+    top:0;
+  }
+  .lunbo-imgs2{
+    position: absolute;
+    left:-40%;
+    top:0;
+  }
+  .lunbo-cycle{
+    position: absolute;
+    left:0;
+    bottom:0;
+    width:100%;
+    height:26px;
+  }
+}
+#lunbo .lunbo-font h2{
+  background-size: 184px 39px;
+  background: url('../images/watch_medium.png');
+  width:184px;
+  height:39px;
+  margin:0 auto;
+  margin-top: 40px;
+}
+#lunbo .lunbo-font .num2{
+  background-size: 139px 37px;
+  background: url('../images/ipad_pro_medium.png');
+  width:139px;
+  height:37px;
+  margin:0 auto;
+  margin-top: 40px;
+}
+#lunbo .lunbo-font h3{
+  font-size: 32px;
+  font-family: 'myfont thin';
+  padding:15px 0;
+  text-align: center;
+  color:#333;
+  font-weight: 300;
+}
+#lunbo .lunbo-font ul{
+  font-size: 24px;
+  font-family: 'myfont thin';
+  font-weight: 400;
+  text-align: center;
+  li{
+    margin-right: 20px;
+    display: inline-block;
+  }
+}
+
+.play-icon::after{
+  content:'♪';
+  color:#08c;
+}
+.jiantou-icon::after{
+  content:'☇';
+  color:#08c;
+}
+
+#lunbo .lunbo-imgs{
+  width:671px;
+  height:341px;
+  background-size: 671px 341px;
+  background:url('../images/apple_watch_trio_medium.jpg');
+}
+#lunbo .lunbo-imgs2{
+  width:1310px;
+  height:541px;
+  background-size: 1310px 541px;
+  background:url('../images/ipad_pro_family_medium.jpg');
+}
+#lunbo .lunbo-cycle ul{
+  text-align: center;
+  margin-top: 10px;
+  li{
+    display: inline-block;
+    margin:0 6px;
+    line-height: 26px;
+  }
+  a{
+    display: inline-block;
+    width:8px;
+    height:8px;
+    border-radius: 50%;
+    background: #999;
+  }
+  .check-a{
+    border:1px solid #08c;
+    background: #fff;
+  }
+}
+
+@media screen and(max-width: $resize-two){
+  #lunbo{
+    height:321px;
+    .lunbo-content{
+      width:263px;
+    }
+    .lunbo-imgs-box{
+      margin:0 auto;
+      width:263px;
+      height:134px;
+    }
+    .lunbo-imgs{
+      width:100%;
+      height:100%;
+      background-size: 263px 134px;
+      background: url('../images/apple_watch_trio_small.jpg');
+    }
+    .lunbo-content{
+      width:620px;
+    }
+    .lunbo-font{
+      margin:0 auto;
+      width:320px;
+      height:160px;
+      h2{
+        width:145px;
+        height:31px;
+        background: url('../images/watch_small.png');
+        background-size: 145px 31px;
+      }
+      h3{
+        font-size: 18px;
+        padding:10px 0;
+      }
+      ul{
+        margin:0 auto;
+        width:100%;
+        font-size: 20px;
+        li{
+          margin-right: 5px;
+        }
+      }
+    }
+  }
+  .aside{
+    margin-top: 60px;
+  }
+}
+@media screen and(max-width: $resize-two){
+   #lunbo{
+      .lunbo-font2{
+        width:520px;
+      }
+      .lunbo-imgs-box2{
+        position: relative;
+        margin:0 auto;
+        width:440px;
+        height:182px;
+      }
+      .lunbo-imgs2{
+        position: absolute;
+        left:0;
+        top:0;
+        width:100%;
+        height:100%;
+        background-size: 440px 182px;
+        background: url('../images/ipad_pro_family_small.jpg');
+      }
+   }
+}
+
+
+#xiala-input:checked ~{
+   #lunbo,.aside,.redcross-banner-wrapper,#footer{
+    display: none;
+   }
+}
