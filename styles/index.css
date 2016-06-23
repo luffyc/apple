@@ -641,7 +641,8 @@ i {
     padding: 5px 14px;
   }
   #footer nav .section .ul {
-    display: none;
+    height: 0;
+    transition: height .6s ease-in-out;
   }
   #footer nav .section .title {
     line-height: 2.78;
@@ -688,49 +689,49 @@ i {
 
 @media screen and (max-width: 767px) {
   #input1:checked + .section .ul {
-    display: block;
+    height: 300px;
   }
   #input1:checked + .section h3::after {
     transform: rotate(45deg);
     transition: .3s ease;
   }
   #input2:checked + .section .ul {
-    display: block;
+    height: 300px;
   }
   #input2:checked + .section h3::after {
     transform: rotate(45deg);
     transition: .3s ease;
   }
   #input3:checked + .section .ul {
-    display: block;
+    height: 60px;
   }
   #input3:checked + .section h3::after {
     transform: rotate(45deg);
     transition: .3s ease;
   }
   #input4:checked + .section .ul {
-    display: block;
+    height: 60px;
   }
   #input4:checked + .section h3::after {
     transform: rotate(45deg);
     transition: .3s ease;
   }
   #input5:checked + .section .ul {
-    display: block;
+    height: 90px;
   }
   #input5:checked + .section h3::after {
     transform: rotate(45deg);
     transition: .3s ease;
   }
   #input6:checked + .section .ul {
-    display: block;
+    height: 120px;
   }
   #input6:checked + .section h3::after {
     transform: rotate(45deg);
     transition: .3s ease;
   }
   #input7:checked + .section .ul {
-    display: block;
+    height: 210px;
   }
   #input7:checked + .section h3::after {
     transform: rotate(45deg);
@@ -1134,13 +1135,17 @@ i {
   transition: transform 0.5s 0.27s ease;
 }
 
+#lunbo .swiper-container-horizontal > .swiper-pagination-bullets {
+  bottom: 0;
+}
+
 #lunbo {
   position: relative;
-  top: 50px;
+  top: 44px;
   left: 0;
   right: 0;
   width: 100%;
-  height: 580px;
+  height: 600px;
   z-index: 9;
 }
 
@@ -1150,7 +1155,7 @@ i {
   left: 0;
   right: 0;
   top: 0;
-  width: 671px;
+  width: 100%;
   height: 100%;
 }
 
@@ -1163,6 +1168,18 @@ i {
 #lunbo .lunbo-num {
   position: absolute;
   left: 0;
+  right: 0;
+  margin: auto;
+  top: 0;
+  width: 671px;
+  height: 100%;
+}
+
+#lunbo .lunbo-num3 {
+  position: absolute;
+  left: 0;
+  right: 0;
+  margin: auto;
   top: 0;
   width: 100%;
   height: 100%;
@@ -1180,7 +1197,13 @@ i {
   height: 341px;
 }
 
-#lunbo .lunbo-imgs {
+#lunbo .lunbo-imgs-box3 {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+#lunbo .lunbo-imgs, #lunbo .lunbo-imgs3 {
   position: absolute;
   left: 0;
   top: 0;
@@ -1188,7 +1211,7 @@ i {
 
 #lunbo .lunbo-imgs2 {
   position: absolute;
-  left: -40%;
+  left: 0;
   top: 0;
 }
 
@@ -1198,6 +1221,22 @@ i {
   bottom: 0;
   width: 100%;
   height: 26px;
+}
+
+#lunbo #ul {
+  width: 300px;
+  height: 103px;
+  position: absolute;
+  margin: auto;
+  left: 50%;
+  top: 50%;
+  z-index: 99999;
+  margin-left: -260px;
+  margin-top: -80px;
+}
+
+#lunbo #ul li {
+  padding: 5px;
 }
 
 #lunbo .lunbo-font h2 {
@@ -1239,6 +1278,16 @@ i {
   display: inline-block;
 }
 
+#ul .san a {
+  font-family: 'myfont thin';
+  font-size: 28px;
+}
+
+#ul .www a {
+  font-size: 42px;
+  color: #fff;
+}
+
 .play-icon::after {
   content: '♪';
   color: #08c;
@@ -1252,15 +1301,20 @@ i {
 #lunbo .lunbo-imgs {
   width: 671px;
   height: 341px;
-  background-size: 671px 341px;
   background: url("../images/apple_watch_trio_medium.jpg");
 }
 
 #lunbo .lunbo-imgs2 {
-  width: 1310px;
-  height: 541px;
-  background-size: 1310px 541px;
-  background: url("../images/ipad_pro_family_medium.jpg");
+  width: 980px;
+  height: 401px;
+  background: url("../images/ipad_pro_family_medium.jpg") -200px 0;
+}
+
+#lunbo .lunbo-imgs3 {
+  width: 100%;
+  height: 100%;
+  background: url("../images/2016_medium.jpg") 0 -50px no-repeat;
+  background-size: 100%;
 }
 
 #lunbo .lunbo-cycle ul {
@@ -1288,11 +1342,25 @@ i {
 }
 
 @media screen and (max-width: 735px) {
+  #lunbo .lunbo-imgs3 {
+    width: 100%;
+    height: 100%;
+    background: url("../images/2016_small.jpg") 60px 0;
+    background-size: 100%;
+  }
+  #ul .san a {
+    font-family: 'myfont thin';
+    font-size: 16px;
+  }
+  #ul .www a {
+    font-size: 26px;
+    color: #fff;
+  }
   #lunbo {
     height: 321px;
   }
-  #lunbo .lunbo-content {
-    width: 263px;
+  #lunbo #ul {
+    margin-left: -200px;
   }
   #lunbo .lunbo-imgs-box {
     margin: 0 auto;
@@ -1306,6 +1374,9 @@ i {
     background: url("../images/apple_watch_trio_small.jpg");
   }
   #lunbo .lunbo-content {
+    width: 100%;
+  }
+  #lunbo .lunbo-num {
     width: 620px;
   }
   #lunbo .lunbo-font {

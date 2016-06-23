@@ -221,7 +221,8 @@
     }
   }
   #footer nav .section .ul{
-    display:none;
+    height:0;
+    transition:height .6s ease-in-out;
   }
   #footer nav .section .title{
     line-height: 2.78;
@@ -249,7 +250,7 @@
   @for $i from 1 through 7{
       #input#{$i}{
         &:checked + .section .ul{
-          display: block;
+          height: nth($li,$i)*30px;
         }
         &:checked + .section h3::after{
           transform:rotate(45deg);
@@ -567,14 +568,17 @@
   }
 }
 
+#lunbo .swiper-container-horizontal>.swiper-pagination-bullets{
+  bottom:0;
+}
 
 #lunbo{
   position: relative;
-  top:50px;
+  top:44px;
   left:0;
   right:0;
   width:100%;
-  height:580px;
+  height:600px;
   z-index: 9;
   .lunbo-content{
     position: absolute;
@@ -582,7 +586,7 @@
     left:0;
     right:0;
     top:0;
-    width:671px;
+    width:100%;
     height:100%;
   }
   .lunbo-position{
@@ -593,6 +597,17 @@
   .lunbo-num{
     position: absolute;
     left:0;
+    right:0;
+    margin:auto;
+    top:0;
+    width:671px;
+    height:100%;
+  }
+  .lunbo-num3{
+    position: absolute;
+    left:0;
+    right:0;
+    margin:auto;
     top:0;
     width:100%;
     height:100%;
@@ -607,14 +622,19 @@
     width:100%;
     height:341px;
   }
-  .lunbo-imgs{
+  .lunbo-imgs-box3{
+    position: relative;
+    width:100%;
+    height:100%;
+  }
+  .lunbo-imgs,.lunbo-imgs3{
     position: absolute;
     left:0;
     top:0;
   }
   .lunbo-imgs2{
     position: absolute;
-    left:-40%;
+    left:0;
     top:0;
   }
   .lunbo-cycle{
@@ -623,6 +643,20 @@
     bottom:0;
     width:100%;
     height:26px;
+  }
+  #ul{
+    width:300px;
+    height:103px;
+    position: absolute;
+    margin:auto;
+    left:50%;
+    top:50%;
+    z-index: 99999;
+    margin-left: -260px;
+    margin-top: -80px;
+    li{
+      padding:5px;
+    }
   }
 }
 #lunbo .lunbo-font h2{
@@ -659,7 +693,14 @@
     display: inline-block;
   }
 }
-
+#ul .san a{
+  font-family: 'myfont thin';
+  font-size: 28px;
+}
+#ul .www a{
+  font-size: 42px;
+  color:#fff;
+}
 .play-icon::after{
   content:'♪';
   color:#08c;
@@ -672,14 +713,18 @@
 #lunbo .lunbo-imgs{
   width:671px;
   height:341px;
-  background-size: 671px 341px;
   background:url('../images/apple_watch_trio_medium.jpg');
 }
 #lunbo .lunbo-imgs2{
-  width:1310px;
-  height:541px;
-  background-size: 1310px 541px;
-  background:url('../images/ipad_pro_family_medium.jpg');
+  width:980px;
+  height:401px;
+  background:url('../images/ipad_pro_family_medium.jpg') -200px 0;
+}
+#lunbo .lunbo-imgs3{
+  width:100%;
+  height:100%;
+  background:url('../images/2016_medium.jpg') 0 -50px no-repeat;
+  background-size: 100%;
 }
 #lunbo .lunbo-cycle ul{
   text-align: center;
@@ -703,10 +748,24 @@
 }
 
 @media screen and(max-width: $resize-two){
+  #lunbo .lunbo-imgs3{
+    width:100%;
+    height:100%;
+    background:url('../images/2016_small.jpg') 60px 0 ;
+    background-size: 100%;
+  }
+  #ul .san a{
+    font-family: 'myfont thin';
+    font-size: 16px;
+  }
+  #ul .www a{
+    font-size: 26px;
+    color:#fff;
+  }
   #lunbo{
     height:321px;
-    .lunbo-content{
-      width:263px;
+    #ul{
+      margin-left: -200px;
     }
     .lunbo-imgs-box{
       margin:0 auto;
@@ -720,6 +779,9 @@
       background: url('../images/apple_watch_trio_small.jpg');
     }
     .lunbo-content{
+      width:100%;
+    }
+    .lunbo-num{
       width:620px;
     }
     .lunbo-font{

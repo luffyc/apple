@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>apple index</title>
     <link rel="stylesheet" href="styles/index.css">
-    
+    <link rel="stylesheet" href="styles/swiper.min.css">
+    <script src="js/swiper.min.js"></script>
   </head>
   <body>
     <input type="checkbox" id="xiala-input">
@@ -44,40 +45,57 @@
     <div id="lunbo">
       <div class="lunbo-content">
         <div class="lunbo-position">
-          <div class="lunbo-num">
-            <div class="lunbo-font">
-              <h2></h2>
-              <h3> You. At a glace.</h3>
-              <ul>
-                <li class="jiantou-icon"><a href="">Learn more </a></li>
-                <li class="play-icon"><a href="">Watch the keynote </a></li>
-              </ul>
+          <div class="swiper-container">
+            <div class="swiper-wrapper">
+                <div class="swiper-slide">
+                  <div class="lunbo-num">
+                    <div class="lunbo-font">
+                      <h2></h2>
+                      <h3> You. At a glace.</h3>
+                      <ul>
+                        <li class="jiantou-icon"><a href="">Learn more </a></li>
+                        <li class="play-icon"><a href="">Watch the keynote </a></li>
+                      </ul>
+                    </div>
+                    <div class="lunbo-imgs-box">
+                        <div class="lunbo-imgs"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="lunbo-num">
+                    <div class="lunbo-font lunbo-font2">
+                      <h2 class="num2"></h2>
+                      <h3> Super. Computer. Now in two sizes.</h3>
+                      <ul>
+                        <li class="jiantou-icon"><a href="">Learn more </a></li>
+                        <li class="play-icon"><a href="">Watch the film </a></li>
+                        <li class="play-icon"><a href="">Watch the keynode </a></li>
+                      </ul>
+                    </div>
+                    <div class="lunbo-imgs-box2">
+                      <div class="lunbo-imgs2"></div>
+                    </div>
+                  </div>
+                </div>
+                <div class="swiper-slide">
+                  <div class="lunbo-num3">
+                    <div class="lunbo-imgs-box3">
+                        <ul id="ul">
+                          <li class="san www"><a href="">WWWDC16</a></li>
+                          <li class="san play-icon"><a href="">Watch the keynote </a></li>
+                        </ul>
+                        <div class="lunbo-imgs3"></div>
+                    </div>
+                  </div>
+                </div>
             </div>
-            <div class="lunbo-imgs-box">
-                <div class="lunbo-imgs"></div>
-            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+            <!-- Add Arrows -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
           </div>
-          <!-- <div class="lunbo-num">
-            <div class="lunbo-font lunbo-font2">
-              <h2 class="num2"></h2>
-              <h3> Super. Computer. Now in two sizes.</h3>
-              <ul>
-                <li class="jiantou-icon"><a href="">Learn more </a></li>
-                <li class="play-icon"><a href="">Watch the film </a></li>
-                <li class="play-icon"><a href="">Watch the keynode </a></li>
-              </ul>
-            </div>
-            <div class="lunbo-imgs-box2">
-              <div class="lunbo-imgs2"></div>
-            </div>
-          </div> -->
-        <div class="lunbo-cycle">
-          <ul>
-            <li><a href="" class="check-a"></a></li>
-            <li><a href=""></a></li>
-            <li><a href=""></a></li>
-          </ul>
-        </div>
         </div>
       </div>
     </div>
@@ -216,5 +234,17 @@
         </div> 
       </div>
     </footer>
+    <script>
+     var swiper = new Swiper('.swiper-container', {
+        pagination: '.swiper-pagination',
+        nextButton: '.swiper-button-next',
+        prevButton: '.swiper-button-prev',
+        paginationClickable: true,
+        spaceBetween: 30,
+        centeredSlides: true,
+        autoplay: 2500,
+        autoplayDisableOnInteraction: false
+    });
+    </script>
   </body>
 </html>
